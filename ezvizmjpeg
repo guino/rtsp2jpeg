@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Content-Type: multipart/x-mixed-replace;boundary=ffmpeg"
+echo "Cache-Control: no-cache"
+echo ""
+# DOES NOT WORK ON SAFARI 
+ffmpeg -i "rtsp://admin:PASSWORD@10.10.10.171:554/Streaming/Channels/102" -c:v mjpeg -q:v 1 -f mpjpeg -r 1 -an -

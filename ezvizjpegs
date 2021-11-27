@@ -1,0 +1,8 @@
+#!/bin/bash
+
+exec ./ezvizserv &> /dev/null &
+
+echo "Content-Type: image/jpeg"
+echo "Cache-Control: no-cache"
+echo ""
+cat /tmp/ezviz.jpg

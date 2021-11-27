@@ -1,0 +1,18 @@
+#!/bin/bash
+
+touch /tmp/ezviz.tmp
+
+SERV=$(ps -ef | grep -v grep | grep -c ezvizserv)
+if [ $SERV -gt 2 ]; then
+ exit 0
+fi
+
+ffmpeg -rtsp_transport tcp -i "rtsp://admin:PASSWORD@10.10.10.171:554/Streaming/Channels/102" -update 1 -r 1 -y /tmp/ezviz.jpg 2> /dev/null &
+FFID=$!
+
+while [ $((`date +%s`-`stat -c %Y /tmp/ezviz.tmp`)) -lt 20 ];
+do
+ sleep 5
+done
+
+kill -9 $FFID
