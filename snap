@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$QUERY_STRING" != "${QUERY_STRING/cam=door/}" ]; then
+ curl -is "http://admin:password@10.10.10.8:8080/cgi-bin/snap.cgi"
+fi
+
+if [ "$QUERY_STRING" != "${QUERY_STRING/cam=office/}" ]; then
+ curl -is "http://admin:password@10.10.10.42/snap.jpg"
+fi
+
+if [ "$QUERY_STRING" != "${QUERY_STRING/cam=living/}" ]; then
+ curl -is "http://admin:password@10.10.10.143/snap.jpg"
+fi
+
+if [ "$QUERY_STRING" != "${QUERY_STRING/cam=feeder/}" ]; then
+ curl -is "http://admin:password@10.10.10.88:8080/cgi-bin/snap.cgi"
+fi
