@@ -1,0 +1,108 @@
+<html>
+<title>Cameras</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+.wrap {
+  margin: 0 0;
+}
+.grid {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid>* {
+  background: black;
+  padding: 0px;
+  box-shadow: inset 0 0 0 1px #fff;
+}
+iframe {
+  display:block;
+  width:100%;
+  height:100%;
+  border:none;
+}
+img {
+  width: 100%;
+  height: 33.3vh;
+  object-fit: fill;
+}
+</style>
+<script language="JavaScript">
+function refreshEzviz() {
+   document.images['ezviz'].src = 'http://10.10.10.87:88/cgi-bin/ezvizjpegs?' + Math.random();
+}
+function refreshDOOR() {
+   document.images['door'].src = 'http://10.10.10.87:88/cgi-bin/snap?cam=door&t=' + Math.random();
+}
+function refreshFront() {
+   document.images['front'].src = 'http://10.10.10.141/action/snap?cam=0&user=admin&pwd=password&t=' + Math.random();
+}
+function refreshFence() {
+   document.images['fence'].src = 'http://10.10.10.128/action/snap?cam=0&user=admin&pwd=password&t=' + Math.random();
+}
+function refreshPool() {
+   document.images['pool'].src = 'http://10.10.10.116/action/snap?cam=0&user=admin&pwd=password&t=' + Math.random();
+}
+function refreshAlley() {
+   document.images['alley'].src = 'http://10.10.10.113/action/snap?cam=0&user=admin&pwd=password&t=' + Math.random();
+}
+function refreshPTZ() {
+   document.images['ptz'].src = 'http://10.10.10.87:88/cgi-bin/snap?cam=office&t=' + Math.random();
+}
+function refreshPTZ2() {
+   document.images['ptz2'].src = 'http://10.10.10.87:88/cgi-bin/snap?cam=living&t=' + Math.random();
+}
+function refreshFEEDER() {
+   document.images['feeder'].src = 'http://10.10.10.87:88/cgi-bin/snap?cam=feeder&t=' + Math.random();
+}
+</script>
+<body>
+<div class="wrap">
+  <div class="grid">
+    <div class="grid__item" id="ezdiv">
+      <img name="ezviz" src="http://10.10.10.87:88/cgi-bin/ezvizjpegs"
+	       onLoad="setTimeout('refreshEzviz()',1000)" onError="setTimeout('refreshEzviz()',1000)">
+    </div>
+    <div class="grid__item">
+      <img name="door" src="http://10.10.10.87:88/cgi-bin/snap?cam=door"
+	       onLoad="setTimeout('refreshDOOR()',1000)" onError="setTimeout('refreshDOOR()',1000)">
+    </div>
+    <div class="grid__item">
+      <img name="front" src="http://10.10.10.141/action/snap?cam=0&user=admin&pwd=password"
+	       onLoad="setTimeout('refreshFront()',1000)" onError="setTimeout('refreshFront()',1000)">
+    </div>
+    <div class="grid__item">
+      <img name="fence" src="http://10.10.10.128/action/snap?cam=0&user=admin&pwd=password"
+	       onLoad="setTimeout('refreshFence()',1000)" onError="setTimeout('refreshFence()',1000)">
+    </div>
+    <div class="grid__item">
+      <img name="pool" src="http://10.10.10.116/action/snap?cam=0&user=admin&pwd=password"
+	       onLoad="setTimeout('refreshPool()',1000)" onError="setTimeout('refreshPool()',1000)">
+    </div>
+    <div class="grid__item">
+      <img name="alley" src="http://10.10.10.113/action/snap?cam=0&user=admin&pwd=password"
+	       onLoad="setTimeout('refreshAlley()',1000)" onError="setTimeout('refreshAlley()',1000)">
+    </div>
+    <div class="grid__item">
+      <img name="ptz2" src="http://10.10.10.87:88/cgi-bin/snap?cam=living" 
+	       onLoad="setTimeout('refreshPTZ2()',1000)" onError="setTimeout('refreshPTZ2()',1000)">
+    </div>
+    <div class="grid__item">
+      <img name="ptz" src="http://10.10.10.87:88/cgi-bin/snap?cam=office"
+	       onLoad="setTimeout('refreshPTZ()',1000)" onError="setTimeout('refreshPTZ()',1000)">
+    </div>
+    <div class="grid__item">
+      <img name="feeder" src="http://10.10.10.87:88/cgi-bin/snap?cam=feeder"
+	       onLoad="setTimeout('refreshFEEDER()',1000)" onError="setTimeout('refreshFEEDER()',1000)">
+    </div>
+  </div>
+</div>
+</body>
+</html>
